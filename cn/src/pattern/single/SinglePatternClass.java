@@ -1,4 +1,4 @@
-package pattern;
+package pattern.single;
 
 /*
  * 单例模式

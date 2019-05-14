@@ -1,4 +1,4 @@
-package pattern;
+package pattern.single;
 
 
 //枚举类实现的单例模式 - - 可以避免反射，序列化和反序列化的问题
