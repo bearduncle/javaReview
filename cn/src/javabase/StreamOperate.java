@@ -2,6 +2,7 @@ package javabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 * */
 public class StreamOperate {
 
-    public void test1(){
+    public static void main(String[] args){
         //使用stream流过滤出数据并且生成新的List
         List<String> list = new ArrayList<>();
         list.add("张无忌");
@@ -23,7 +24,7 @@ public class StreamOperate {
         //使用遍历
         List<String> newList = new ArrayList<>();
         for(String temp:list){
-            if(!temp.isEmpty()&&temp.contains("张")){
+            if(temp!=null&&temp.contains("张")){
                 newList.add(temp);
             }
         }
@@ -32,5 +33,9 @@ public class StreamOperate {
                 .filter(Objects::nonNull)
                 .filter(item->item.contains("张"))
                 .collect(Collectors.toList());
+
+        String name = list.stream().filter(Objects::nonNull).map(item -> item.equals("周芷若")).distinct().toString();
+        Map<String,Integer> sMap = list.stream().filter(Objects::nonNull).collect(Collectors.toMap(item->item,String::length));
+        System.out.println(sMap);
     }
 }
