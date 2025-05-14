@@ -40,7 +40,7 @@ class SinglePatternClass2 {
 
 //懒汉式双重锁
 class SinglePatternClass3 {
-    private static SinglePatternClass3 singlePatternClass = null;
+    private volatile static SinglePatternClass3 singlePatternClass = null;
 
     private SinglePatternClass3() {
     }
